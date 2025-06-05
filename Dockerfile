@@ -1,8 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy-arm64v8 AS build
-WORKDIR /src
-COPY *.csproj .
+# 👇 Update these lines to point to your subfolder
+WORKDIR /src/FullPetFlix
+COPY FullPetFlix/*.csproj .
 RUN dotnet restore
-COPY . .
+COPY FullPetFlix/ .
+# 👆 All paths now correctly reference the subfolder
 RUN dotnet publish -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy-arm64v8

@@ -1,7 +1,7 @@
 services:
   - type: web
     name: petflix-backend
-    env: dotnet  # Use 'env' instead of 'runtime'
+    env: dotnet
     repo: https://github.com/AbdallahMaani/Petflix-Backend
     branch: main
     buildCommand: dotnet publish -c Release -o out

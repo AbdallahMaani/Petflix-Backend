@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: petflix-backend
+    runtime: dotnet
+    repo: https://github.com/AbdallahMaani/Petflix-Backend
+    branch: main
+    buildCommand: dotnet build
+    startCommand: dotnet FullPetFlix.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production

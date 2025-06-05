@@ -22,3 +22,7 @@ obj/
 # Ignore user-specific settings
 *.user
 *.vs/
+
+
+out/
+*.pdb

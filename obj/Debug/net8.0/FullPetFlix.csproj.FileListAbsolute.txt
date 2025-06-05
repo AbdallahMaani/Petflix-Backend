@@ -560,3 +560,4 @@ C:/Users/user/Desktop/finally/FullPetFlix/FullPetFlix/bin/Debug/net8.0/Microsoft
 /Users/abdallahmaani/Desktop/finally/FullPetFlix/FullPetFlix/obj/Debug/net8.0/FullPetFlix.pdb
 /Users/abdallahmaani/Desktop/finally/FullPetFlix/FullPetFlix/obj/Debug/net8.0/FullPetFlix.genruntimeconfig.cache
 /Users/abdallahmaani/Desktop/finally/FullPetFlix/FullPetFlix/obj/Debug/net8.0/ref/FullPetFlix.dll
+/Users/abdallahmaani/Desktop/finally/FullPetFlix/FullPetFlix/obj/Debug/net8.0/FullPetFlix.sourcelink.json

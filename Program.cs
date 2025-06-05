@@ -36,11 +36,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Enable CORS
+// Replace the AllowAll policy with this more secure version
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("ProductionCors", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("https://petflix-front.onrender.com/")
               .AllowAnyMethod()
               .AllowAnyHeader();
     });

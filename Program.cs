@@ -78,7 +78,7 @@ app.UseExceptionHandler(errorApp =>
 });
 
 // Use CORS before other middleware
-app.UseCors("AllowAll");
+app.UseCors("ProductionCors");
 
 // Swagger UI only in development
 if (app.Environment.IsDevelopment())

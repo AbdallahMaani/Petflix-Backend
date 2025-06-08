@@ -33,8 +33,8 @@ if (string.IsNullOrEmpty(connectionString))
 Console.WriteLine($"Using connection string: {connectionString}"); // Log for debugging
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString)
-           .EnableSensitiveDataLogging() // Debug DB issues
-           .EnableDetailedErrors());     // Debug DB issues
+           .EnableSensitiveDataLogging() // Debug DB issues, remove in production
+           .EnableDetailedErrors());     // Debug DB issues, remove in production
 
 // Enable CORS
 builder.Services.AddCors(options =>
@@ -42,8 +42,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ProductionCors", policy =>
     {
         policy.WithOrigins("https://petflix-front.onrender.com")
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+              .WithMethods("GET", "POST", "PUT", "DELETE") // Restrict methods for security
+              .WithHeaders("Content-Type", "Authorization"); // Restrict headers for security
     });
 });
 
@@ -81,6 +81,9 @@ app.UseExceptionHandler(errorApp =>
     });
 });
 
+// Root endpoint - place before other middleware to ensure accessibility
+app.MapGet("/", () => "PetFlix Backend is running!");
+
 // Use CORS before other middleware
 app.UseCors("ProductionCors");
 
@@ -104,13 +107,11 @@ using (var scope = app.Services.CreateScope())
     {
         Console.WriteLine($"Migration failed: {ex.Message}");
         Console.WriteLine(ex.StackTrace);
-        throw;
+        throw; // Re-throw to halt startup if critical
     }
 }
 
-// Disable HTTPS redirection for Render
-// app.UseHttpsRedirection();
-
+// Authorization and controllers
 app.UseAuthorization();
 app.MapControllers();
 

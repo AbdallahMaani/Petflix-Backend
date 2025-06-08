@@ -58,6 +58,12 @@ builder.Services.AddScoped<IReportRepository, ReportRepository>();
 
 var app = builder.Build();
 
+// Get the PORT environment variable from Render
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+
+// Add a root endpoint
+app.MapGet("/", () => "PetFlix Backend is running!");
+
 // Global exception handling
 app.UseExceptionHandler(errorApp =>
 {
@@ -84,8 +90,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// Disable HTTPS redirection for Render
+// app.UseHttpsRedirection();
+
 app.UseAuthorization();
 app.MapControllers();
 
-app.Run();
+// Use Render's port binding
+app.Run($"http://0.0.0.0:{port}");

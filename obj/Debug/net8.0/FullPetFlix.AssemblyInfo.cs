@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FullPetFlix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8eabc717bc591cd5b1df04385f331a78d47055d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d2e6c3bf7dc32201471e3f0953b9d28887c8f28")]
 [assembly: System.Reflection.AssemblyProductAttribute("FullPetFlix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FullPetFlix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

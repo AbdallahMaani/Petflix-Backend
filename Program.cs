@@ -42,8 +42,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ProductionCors", policy =>
     {
         policy.WithOrigins("https://petflix-front.onrender.com")
-              .WithMethods("GET", "POST", "PUT", "DELETE") // Restrict methods for security
-              .WithHeaders("Content-Type", "Authorization"); // Restrict headers for security
+              .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Include OPTIONS for preflight
+              .AllowAnyHeader() // Allow all headers, including Cache-Control
+              .AllowCredentials(); // Optional, only if using credentials (e.g., cookies, auth tokens)
     });
 });
 

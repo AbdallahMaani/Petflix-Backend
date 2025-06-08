@@ -54,7 +54,7 @@ namespace FullPetflix.ReportFiles
         public ReportStatus? Status { get; set; } = ReportStatus.Pending;
 
         public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime? ResolvedAt { get; set; }
+        public DateTime? ResolvedAt { get; set; } = DateTime.UtcNow;
 
         [MaxLength(500)]
         public string? ResolutionNotes { get; set; }

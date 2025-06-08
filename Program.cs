@@ -14,8 +14,6 @@ using FullPetflix.ReportFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 // Add services to the container.
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
@@ -26,25 +24,21 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionString = builder.Configuration.GetConnectionString("DBConnection");
+var connectionString = builder.Configuration.GetConnectionString("RenderPg");
 if (string.IsNullOrEmpty(connectionString))
 {
-    throw new Exception("Connection string 'DBConnection' is not set.");
+    throw new Exception("Connection string 'RenderPg' is not set.");
 }
 
-/*builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));*/
-
-    builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("RenderPg")));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(connectionString));
 
 // Enable CORS
-// Replace the AllowAll policy with this more secure version
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ProductionCors", policy =>
     {
-        policy.WithOrigins("https://petflix-front.onrender.com/")
+        policy.WithOrigins("https://petflix-front.onrender.com")
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
@@ -91,9 +85,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

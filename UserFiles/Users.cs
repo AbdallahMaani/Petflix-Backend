@@ -47,7 +47,8 @@ namespace FullPetflix.UserFiles
             {
                 if (DateTime.TryParse(value, out DateTime parsedDate))
                 {
-                    birthDay = parsedDate;
+                    // Ensure UTC
+                    birthDay = DateTime.SpecifyKind(parsedDate, DateTimeKind.Utc);
                 }
             }
         }

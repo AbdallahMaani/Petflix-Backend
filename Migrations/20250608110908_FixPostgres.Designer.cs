@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FullPetFlix.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250608100654_fixPostegr")]
-    partial class fixPostegr
+    [Migration("20250608110908_FixPostgres")]
+    partial class FixPostgres
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -844,7 +844,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 1,
                             AnimalId = 1,
                             Content = "Great pet!",
-                            ReviewDate = new DateTime(2025, 6, 7, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1810),
+                            ReviewDate = new DateTime(2025, 6, 7, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5660),
                             ReviewerId = 2
                         },
                         new
@@ -852,7 +852,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 2,
                             AnimalId = 2,
                             Content = "Very playful.",
-                            ReviewDate = new DateTime(2025, 6, 6, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1820),
+                            ReviewDate = new DateTime(2025, 6, 6, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5660),
                             ReviewerId = 3
                         },
                         new
@@ -860,7 +860,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 3,
                             AnimalId = 3,
                             Content = "Beautiful singing!",
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1820),
+                            ReviewDate = new DateTime(2025, 6, 5, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5660),
                             ReviewerId = 1
                         },
                         new
@@ -868,7 +868,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 4,
                             AnimalId = 1,
                             Content = "Very friendly dog!",
-                            ReviewDate = new DateTime(2025, 6, 4, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1820),
+                            ReviewDate = new DateTime(2025, 6, 4, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5670),
                             ReviewerId = 8
                         },
                         new
@@ -876,7 +876,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 5,
                             AnimalId = 1,
                             Content = "Great pet!",
-                            ReviewDate = new DateTime(2025, 6, 7, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
+                            ReviewDate = new DateTime(2025, 6, 7, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5670),
                             ReviewerId = 5
                         },
                         new
@@ -884,7 +884,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 6,
                             AnimalId = 2,
                             Content = "Very playful.",
-                            ReviewDate = new DateTime(2025, 6, 6, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
+                            ReviewDate = new DateTime(2025, 6, 6, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5670),
                             ReviewerId = 5
                         },
                         new
@@ -892,7 +892,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 7,
                             AnimalId = 8,
                             Content = "Beautiful singing!",
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
+                            ReviewDate = new DateTime(2025, 6, 5, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5670),
                             ReviewerId = 1
                         },
                         new
@@ -900,7 +900,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 8,
                             AnimalId = 6,
                             Content = "Very friendly dog!",
-                            ReviewDate = new DateTime(2025, 6, 4, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
+                            ReviewDate = new DateTime(2025, 6, 4, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5670),
                             ReviewerId = 3
                         },
                         new
@@ -908,7 +908,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 9,
                             AnimalId = 8,
                             Content = "Great pet!",
-                            ReviewDate = new DateTime(2025, 6, 7, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1840),
+                            ReviewDate = new DateTime(2025, 6, 7, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5670),
                             ReviewerId = 5
                         },
                         new
@@ -916,7 +916,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 10,
                             AnimalId = 6,
                             Content = "Very playful.",
-                            ReviewDate = new DateTime(2025, 6, 6, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1840),
+                            ReviewDate = new DateTime(2025, 6, 6, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5670),
                             ReviewerId = 2
                         },
                         new
@@ -924,7 +924,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 11,
                             AnimalId = 3,
                             Content = "Beautiful singing!",
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1840),
+                            ReviewDate = new DateTime(2025, 6, 5, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5680),
                             ReviewerId = 5
                         },
                         new
@@ -932,7 +932,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 12,
                             AnimalId = 9,
                             Content = "Very friendly dog!",
-                            ReviewDate = new DateTime(2025, 6, 4, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1850),
+                            ReviewDate = new DateTime(2025, 6, 4, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5680),
                             ReviewerId = 7
                         });
                 });
@@ -1107,7 +1107,7 @@ namespace FullPetFlix.Migrations
                         {
                             OrderId = 1,
                             IncludeDelivery = true,
-                            OrderDate = new DateTime(2025, 6, 7, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1870),
+                            OrderDate = new DateTime(2025, 6, 7, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5700),
                             Status = "Processing",
                             Tip = 0.00m,
                             UserId = 5
@@ -1116,7 +1116,7 @@ namespace FullPetFlix.Migrations
                         {
                             OrderId = 2,
                             IncludeDelivery = false,
-                            OrderDate = new DateTime(2025, 6, 6, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1880),
+                            OrderDate = new DateTime(2025, 6, 6, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5710),
                             Status = "Completed",
                             Tip = 0.00m,
                             UserId = 1
@@ -1249,7 +1249,7 @@ namespace FullPetFlix.Migrations
                             product_id = 1,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(2025, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2025, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "Complete and balanced nutrition for medium-sized dogs, ensuring they stay healthy and active.",
                             product_new_price = 149.99000000000001,
@@ -1267,7 +1267,7 @@ namespace FullPetFlix.Migrations
                             product_id = 2,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(2026, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2026, 3, 15, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "Irresistible and nutritious food for cats, providing all essential vitamins and minerals.",
                             product_new_price = 119.98999999999999,
@@ -1285,7 +1285,7 @@ namespace FullPetFlix.Migrations
                             product_id = 3,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A tough and durable dog toy that can withstand rough play.",
                             product_new_price = 79.989999999999995,
@@ -1303,7 +1303,7 @@ namespace FullPetFlix.Migrations
                             product_id = 4,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "An interactive cat toy with a feather wand that keeps cats entertained.",
                             product_new_price = 49.990000000000002,
@@ -1321,7 +1321,7 @@ namespace FullPetFlix.Migrations
                             product_id = 5,
                             ItemType = "Product",
                             designedFor = "Birds",
-                            expiration = new DateTime(2025, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2025, 9, 20, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A balanced seed mix for various bird species, ensuring they get all necessary nutrients.",
                             product_new_price = 59.990000000000002,
@@ -1339,7 +1339,7 @@ namespace FullPetFlix.Migrations
                             product_id = 6,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A stylish and durable leather dog collar that is both comfortable and secure.",
                             product_new_price = 89.989999999999995,
@@ -1357,7 +1357,7 @@ namespace FullPetFlix.Migrations
                             product_id = 7,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "Clumping cat litter with odor control, making it easy to clean and maintain.",
                             product_new_price = 179.99000000000001,
@@ -1375,7 +1375,7 @@ namespace FullPetFlix.Migrations
                             product_id = 8,
                             ItemType = "Product",
                             designedFor = "Fish",
-                            expiration = new DateTime(2024, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2024, 11, 15, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A complete and balanced flake food for tropical fish, promoting vibrant colors and health.",
                             product_new_price = 39.990000000000002,
@@ -1393,7 +1393,7 @@ namespace FullPetFlix.Migrations
                             product_id = 9,
                             ItemType = "Product",
                             designedFor = "Fish",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A decorative castle for your aquarium, providing a fun and engaging environment for fish.",
                             product_new_price = 69.989999999999995,
@@ -1411,7 +1411,7 @@ namespace FullPetFlix.Migrations
                             product_id = 10,
                             ItemType = "Product",
                             designedFor = "Fish",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A 20-gallon glass fish tank, perfect for creating a beautiful and healthy aquatic environment.",
                             product_new_price = 249.99000000000001,
@@ -1429,7 +1429,7 @@ namespace FullPetFlix.Migrations
                             product_id = 11,
                             ItemType = "Product",
                             designedFor = "Rabbits",
-                            expiration = new DateTime(2025, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2025, 10, 10, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A nutritious blend of pellets and hay for rabbits, promoting healthy digestion and growth.",
                             product_new_price = 29.989999999999998,
@@ -1447,7 +1447,7 @@ namespace FullPetFlix.Migrations
                             product_id = 12,
                             ItemType = "Product",
                             designedFor = "Birds",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A vibrant and engaging toy for birds, encouraging physical activity and mental stimulation.",
                             product_new_price = 19.989999999999998,
@@ -1465,7 +1465,7 @@ namespace FullPetFlix.Migrations
                             product_id = 13,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A soft and comfortable bed for cats, providing a warm and secure place to rest.",
                             product_new_price = 49.990000000000002,
@@ -1483,7 +1483,7 @@ namespace FullPetFlix.Migrations
                             product_id = 14,
                             ItemType = "Product",
                             designedFor = "Hamsters",
-                            expiration = new DateTime(2025, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2025, 8, 20, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A balanced mix of seeds and grains for hamsters, ensuring they get all essential nutrients.",
                             product_new_price = 14.99,
@@ -1501,7 +1501,7 @@ namespace FullPetFlix.Migrations
                             product_id = 15,
                             ItemType = "Product",
                             designedFor = "Fish",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A realistic plant decoration for aquariums, providing a natural and engaging environment for fish.",
                             product_new_price = 9.9900000000000002,
@@ -1519,7 +1519,7 @@ namespace FullPetFlix.Migrations
                             product_id = 16,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A strong and durable leash for dogs, perfect for daily walks and outdoor activities.",
                             product_new_price = 24.989999999999998,
@@ -1537,7 +1537,7 @@ namespace FullPetFlix.Migrations
                             product_id = 17,
                             ItemType = "Product",
                             designedFor = "Birds",
-                            expiration = new DateTime(2025, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2025, 9, 20, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A premium blend of organic seeds and grains for birds, promoting overall health and vitality.",
                             product_new_price = 39.990000000000002,
@@ -1555,7 +1555,7 @@ namespace FullPetFlix.Migrations
                             product_id = 18,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A fun and engaging catnip mouse toy for cats, encouraging play and exercise.",
                             product_new_price = 9.9900000000000002,
@@ -1573,7 +1573,7 @@ namespace FullPetFlix.Migrations
                             product_id = 19,
                             ItemType = "Product",
                             designedFor = "Birds",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A large and spacious bird cage, providing a comfortable and secure home for birds.",
                             product_new_price = 99.989999999999995,
@@ -1591,7 +1591,7 @@ namespace FullPetFlix.Migrations
                             product_id = 20,
                             ItemType = "Product",
                             designedFor = "Fish",
-                            expiration = new DateTime(2024, 11, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2024, 11, 15, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A high-quality flake food for tropical fish, promoting vibrant colors and overall health.",
                             product_new_price = 19.989999999999998,
@@ -1609,7 +1609,7 @@ namespace FullPetFlix.Migrations
                             product_id = 21,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A fun and durable squeaky toy for dogs, perfect for playtime and keeping them entertained.",
                             product_new_price = 14.99,
@@ -1627,7 +1627,7 @@ namespace FullPetFlix.Migrations
                             product_id = 22,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A sturdy and durable scratching post for cats, helping to keep their claws healthy and sharp.",
                             product_new_price = 39.990000000000002,
@@ -1645,7 +1645,7 @@ namespace FullPetFlix.Migrations
                             product_id = 23,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(2025, 12, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2025, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A nutritious and grain-free dog food, perfect for dogs with sensitive stomachs.",
                             product_new_price = 59.990000000000002,
@@ -1663,7 +1663,7 @@ namespace FullPetFlix.Migrations
                             product_id = 24,
                             ItemType = "Product",
                             designedFor = "Birds",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A colorful and engaging hanging toy for birds, encouraging physical activity and mental stimulation.",
                             product_new_price = 14.99,
@@ -1681,7 +1681,7 @@ namespace FullPetFlix.Migrations
                             product_id = 25,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A comfortable and supportive orthopedic bed for dogs, providing a restful and relaxing sleep.",
                             product_new_price = 79.989999999999995,
@@ -1699,7 +1699,7 @@ namespace FullPetFlix.Migrations
                             product_id = 26,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(2026, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2026, 3, 15, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A nutritious and grain-free cat food, perfect for cats with sensitive stomachs.",
                             product_new_price = 49.990000000000002,
@@ -1717,7 +1717,7 @@ namespace FullPetFlix.Migrations
                             product_id = 27,
                             ItemType = "Product",
                             designedFor = "Fish",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A realistic shipwreck decoration for aquariums, providing a fun and engaging environment for fish.",
                             product_new_price = 19.989999999999998,
@@ -1735,7 +1735,7 @@ namespace FullPetFlix.Migrations
                             product_id = 28,
                             ItemType = "Product",
                             designedFor = "Birds",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "A natural and comfortable perch for birds, providing a secure place to rest and play.",
                             product_new_price = 14.99,
@@ -1753,7 +1753,7 @@ namespace FullPetFlix.Migrations
                             product_id = 29,
                             ItemType = "Product",
                             designedFor = "Hamsters",
-                            expiration = new DateTime(2025, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2025, 8, 20, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "A premium blend of organic seeds and grains for hamsters, promoting overall health and vitality.",
                             product_new_price = 19.989999999999998,
@@ -1771,7 +1771,7 @@ namespace FullPetFlix.Migrations
                             product_id = 30,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Toys",
                             product_description = "A durable rope tug toy for dogs, perfect for interactive play and keeping them entertained.",
                             product_new_price = 9.9900000000000002,
@@ -1789,7 +1789,7 @@ namespace FullPetFlix.Migrations
                             product_id = 101,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Housing",
                             product_description = "SNOW PERS: Where Persian cats find warmth and love",
                             product_new_price = 39.990000000000002,
@@ -1807,7 +1807,7 @@ namespace FullPetFlix.Migrations
                             product_id = 102,
                             ItemType = "Product",
                             designedFor = "Small Animals",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Other",
                             product_description = "Ensure your pet's safety and comfort on every journey with our premium Pets Seat. Designed for small dogs and cats, this seat elevates your pet, giving them a clear view of the road while keeping them securely restrained. Features include a soft, plush interior, adjustable straps for secure attachment to your car seat, and durable, easy-to-clean materials",
                             product_new_price = 79.989999999999995,
@@ -1825,7 +1825,7 @@ namespace FullPetFlix.Migrations
                             product_id = 103,
                             ItemType = "Product",
                             designedFor = "Dogs",
-                            expiration = new DateTime(2028, 7, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2028, 7, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Health",
                             product_description = "Vaccinations are a crucial part of preventative care for dogs. They stimulate the immune system to protect against potentially life-threatening diseases such as rabies, distemper, parvovirus, and others. Consult your veterinarian to determine the appropriate vaccination schedule for your dog .",
                             product_new_price = 34.990000000000002,
@@ -1843,7 +1843,7 @@ namespace FullPetFlix.Migrations
                             product_id = 104,
                             ItemType = "Product",
                             designedFor = "Horses",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Accessories",
                             product_description = "Horse Gears fit to all horses types.",
                             product_new_price = 39.990000000000002,
@@ -1861,7 +1861,7 @@ namespace FullPetFlix.Migrations
                             product_id = 105,
                             ItemType = "Product",
                             designedFor = "Horses",
-                            expiration = new DateTime(2028, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            expiration = new DateTime(2028, 8, 18, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Food",
                             product_description = "Elevate your horse’s health and performance with these premium Horse Supplements, specially formulated to support the vitality of your equine companion. Crafted from high-quality, natural ingredients, this blend is designed to enhance strength, stamina, and overall well-being. Whether your horse is a spirited Arabian racer or a gentle Quarter Horse, these supplements provide essential vitamins, minerals, and nutrients to promote strong bones, a glossy coat, and optimal muscle development.",
                             product_new_price = 119.98999999999999,
@@ -1879,7 +1879,7 @@ namespace FullPetFlix.Migrations
                             product_id = 106,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Housing",
                             product_description = "Safe, comfy, and convenient. Your pet's ideal travel companion",
                             product_new_price = 19.989999999999998,
@@ -1897,7 +1897,7 @@ namespace FullPetFlix.Migrations
                             product_id = 107,
                             ItemType = "Product",
                             designedFor = "Cats",
-                            expiration = new DateTime(9999, 12, 31, 23, 59, 59, 999, DateTimeKind.Unspecified).AddTicks(9999),
+                            expiration = new DateTime(9999, 12, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             product_category = "Housing",
                             product_description = "A sturdy and durable scratching post for cats, helping to keep their claws healthy and sharp.",
                             product_new_price = 39.990000000000002,
@@ -1946,7 +1946,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 1,
                             Content = "Great product! My dog loves it.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1460),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5460),
                             ReviewerId = 1
                         },
                         new
@@ -1954,7 +1954,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 2,
                             Content = "Good value for the price.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1510),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5460),
                             ReviewerId = 2
                         },
                         new
@@ -1962,7 +1962,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 3,
                             Content = "Excellent quality. Highly recommend.",
                             ProductId = 2,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1520),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5460),
                             ReviewerId = 3
                         },
                         new
@@ -1970,7 +1970,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 4,
                             Content = "My cat is obsessed with this toy!",
                             ProductId = 3,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1520),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5460),
                             ReviewerId = 4
                         },
                         new
@@ -1978,7 +1978,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 5,
                             Content = "Keeps my bird entertained for hours.",
                             ProductId = 5,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1560),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5460),
                             ReviewerId = 5
                         },
                         new
@@ -1986,7 +1986,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 6,
                             Content = "This collar is so stylish and well-made.",
                             ProductId = 6,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5460),
                             ReviewerId = 1
                         },
                         new
@@ -1994,7 +1994,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 7,
                             Content = "Best litter I've ever used. Controls odor perfectly.",
                             ProductId = 7,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 2
                         },
                         new
@@ -2002,7 +2002,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 8,
                             Content = "Affordable and effective.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 3
                         },
                         new
@@ -2010,7 +2010,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 9,
                             Content = "A must-have for cat owners.",
                             ProductId = 7,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 4
                         },
                         new
@@ -2018,7 +2018,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 10,
                             Content = "Highly recommend this brand.",
                             ProductId = 2,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 5
                         },
                         new
@@ -2026,7 +2026,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 11,
                             Content = "My hamster loves this bedding!",
                             ProductId = 8,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 1
                         },
                         new
@@ -2034,7 +2034,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 12,
                             Content = "Great for small dogs, very durable.",
                             ProductId = 9,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1580),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 2
                         },
                         new
@@ -2042,7 +2042,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 13,
                             Content = "Excellent for training puppies.",
                             ProductId = 10,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 3
                         },
                         new
@@ -2050,7 +2050,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 14,
                             Content = "My rabbit enjoys chewing on these sticks.",
                             ProductId = 11,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 4
                         },
                         new
@@ -2058,7 +2058,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 15,
                             Content = "The fish food is top-notch, my fish are thriving.",
                             ProductId = 12,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 5
                         },
                         new
@@ -2066,7 +2066,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 16,
                             Content = "This leash is very strong and comfortable.",
                             ProductId = 13,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 6
                         },
                         new
@@ -2074,7 +2074,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 17,
                             Content = "The catnip spray is a big hit with my cats.",
                             ProductId = 14,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5470),
                             ReviewerId = 7
                         },
                         new
@@ -2082,7 +2082,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 18,
                             Content = "These treats are healthy and delicious.",
                             ProductId = 15,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 8
                         },
                         new
@@ -2090,7 +2090,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 19,
                             Content = "Perfect for my guinea pig's cage.",
                             ProductId = 16,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 9
                         },
                         new
@@ -2098,7 +2098,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 20,
                             Content = "Keeps my aquarium clean and clear.",
                             ProductId = 17,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 6
                         },
                         new
@@ -2106,7 +2106,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 21,
                             Content = "My dog sleeps so well on this bed.",
                             ProductId = 18,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 3
                         },
                         new
@@ -2114,7 +2114,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 22,
                             Content = "Easy to use and effective flea treatment.",
                             ProductId = 19,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 6
                         },
                         new
@@ -2122,7 +2122,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 23,
                             Content = "The birdseed mix is a great value.",
                             ProductId = 20,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 5
                         },
                         new
@@ -2130,7 +2130,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 24,
                             Content = "My kitten loves this scratching post.",
                             ProductId = 21,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 1
                         },
                         new
@@ -2138,7 +2138,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 25,
                             Content = "This vitamin supplement has improved my pet's health.",
                             ProductId = 22,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 2
                         },
                         new
@@ -2146,7 +2146,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 26,
                             Content = "Great for travel, very convenient.",
                             ProductId = 23,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 3
                         },
                         new
@@ -2154,7 +2154,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 27,
                             Content = "My reptile enjoys basking under this lamp.",
                             ProductId = 24,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 4
                         },
                         new
@@ -2162,7 +2162,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 28,
                             Content = "The dog shampoo smells amazing.",
                             ProductId = 25,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5480),
                             ReviewerId = 5
                         },
                         new
@@ -2170,7 +2170,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 29,
                             Content = "These chew toys are perfect for aggressive chewers.",
                             ProductId = 26,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 6
                         },
                         new
@@ -2178,7 +2178,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 30,
                             Content = "My bird loves playing with this mirror.",
                             ProductId = 27,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 7
                         },
                         new
@@ -2186,7 +2186,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 31,
                             Content = "Excellent quality food, my dog is very happy.",
                             ProductId = 28,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 2
                         },
                         new
@@ -2194,7 +2194,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 32,
                             Content = "This carrier is sturdy and comfortable.",
                             ProductId = 29,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 4
                         },
                         new
@@ -2202,7 +2202,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 33,
                             Content = "The water fountain is a great addition to my cat's setup.",
                             ProductId = 30,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 3
                         },
                         new
@@ -2210,7 +2210,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 34,
                             Content = "These training pads are very absorbent.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 4
                         },
                         new
@@ -2218,7 +2218,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 35,
                             Content = "My hamster loves running in this wheel.",
                             ProductId = 2,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 6
                         },
                         new
@@ -2226,7 +2226,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 36,
                             Content = "This harness is very easy to put on.",
                             ProductId = 3,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 5
                         },
                         new
@@ -2234,7 +2234,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 37,
                             Content = "The cat grass is a great natural treat.",
                             ProductId = 4,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 1
                         },
                         new
@@ -2242,7 +2242,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 38,
                             Content = "These dental chews have improved my dog's breath.",
                             ProductId = 5,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 2
                         },
                         new
@@ -2250,7 +2250,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 39,
                             Content = "My guinea pig loves hiding in this tunnel.",
                             ProductId = 6,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5490),
                             ReviewerId = 3
                         },
                         new
@@ -2258,7 +2258,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 40,
                             Content = "The aquarium decorations are very realistic.",
                             ProductId = 7,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 4
                         },
                         new
@@ -2266,7 +2266,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 41,
                             Content = "This bird cage is spacious and easy to clean.",
                             ProductId = 8,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 5
                         },
                         new
@@ -2274,7 +2274,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 42,
                             Content = "My dog loves playing fetch with this frisbee.",
                             ProductId = 9,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 6
                         },
                         new
@@ -2282,7 +2282,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 43,
                             Content = "The cat tree is sturdy and provides plenty of scratching posts.",
                             ProductId = 10,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 7
                         },
                         new
@@ -2290,7 +2290,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 44,
                             Content = "This food bowl is perfect for my messy eater.",
                             ProductId = 11,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 8
                         },
                         new
@@ -2298,7 +2298,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 45,
                             Content = "The grooming brush is gentle and effective.",
                             ProductId = 12,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 5
                         },
                         new
@@ -2306,7 +2306,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 46,
                             Content = "My pet loves the taste of this toothpaste.",
                             ProductId = 13,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 3
                         },
                         new
@@ -2314,7 +2314,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 47,
                             Content = "This tick and flea collar is a lifesaver.",
                             ProductId = 14,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 4
                         },
                         new
@@ -2322,7 +2322,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 48,
                             Content = "The travel carrier is lightweight and easy to carry.",
                             ProductId = 15,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5500),
                             ReviewerId = 10
                         },
                         new
@@ -2330,7 +2330,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 49,
                             Content = "This playpen is perfect for keeping my puppy contained.",
                             ProductId = 16,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 5
                         },
                         new
@@ -2338,7 +2338,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 50,
                             Content = "The aquarium filter is quiet and efficient.",
                             ProductId = 17,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 1
                         },
                         new
@@ -2346,7 +2346,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 51,
                             Content = "My cat loves lounging in this hammock.",
                             ProductId = 18,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 2
                         },
                         new
@@ -2354,7 +2354,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 52,
                             Content = "This dog bed is super comfy and easy to wash.",
                             ProductId = 19,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 3
                         },
                         new
@@ -2362,7 +2362,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 53,
                             Content = "The bird perch is a great addition to my bird's cage.",
                             ProductId = 20,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 4
                         },
                         new
@@ -2370,7 +2370,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 54,
                             Content = "This cat toy is interactive and keeps my cat entertained.",
                             ProductId = 21,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 5
                         },
                         new
@@ -2378,7 +2378,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 55,
                             Content = "The dog treats are made with high-quality ingredients.",
                             ProductId = 22,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 6
                         },
                         new
@@ -2386,7 +2386,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 56,
                             Content = "This pet carrier is perfect for air travel.",
                             ProductId = 23,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 7
                         },
                         new
@@ -2394,7 +2394,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 57,
                             Content = "The reptile tank is well-ventilated and secure.",
                             ProductId = 24,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 8
                         },
                         new
@@ -2402,7 +2402,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 58,
                             Content = "This dog coat is warm and waterproof.",
                             ProductId = 25,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 9
                         },
                         new
@@ -2410,7 +2410,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 59,
                             Content = "The chew toy is durable and long-lasting.",
                             ProductId = 26,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1670),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5510),
                             ReviewerId = 4
                         },
                         new
@@ -2418,7 +2418,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 60,
                             Content = "This bird swing provides hours of fun for my feathered friend.",
                             ProductId = 27,
-                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1670),
+                            ReviewDate = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5520),
                             ReviewerId = 10
                         });
                 });
@@ -2482,9 +2482,10 @@ namespace FullPetFlix.Migrations
                         {
                             ReportId = 1,
                             Content = "Inappropriate behavior.",
-                            CreatedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(990),
+                            CreatedAt = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(4990),
                             ReportedUserId = 2,
                             ReporterId = 1,
+                            ResolvedAt = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(4990),
                             Status = 0,
                             TargetType = 0
                         },
@@ -2492,9 +2493,10 @@ namespace FullPetFlix.Migrations
                         {
                             ReportId = 2,
                             Content = "Animal listing seems suspicious.",
-                            CreatedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1000),
+                            CreatedAt = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(4990),
                             ReportedAnimalId = 2,
                             ReporterId = 2,
+                            ResolvedAt = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(4990),
                             Status = 1,
                             TargetType = 1
                         },
@@ -2502,11 +2504,11 @@ namespace FullPetFlix.Migrations
                         {
                             ReportId = 3,
                             Content = "Product description is misleading.",
-                            CreatedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1000),
+                            CreatedAt = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5000),
                             ReportedProductId = 1,
                             ReporterId = 1,
                             ResolutionNotes = "Issue addressed.",
-                            ResolvedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1000),
+                            ResolvedAt = new DateTime(2025, 6, 8, 11, 9, 8, 208, DateTimeKind.Utc).AddTicks(5000),
                             Status = 2,
                             TargetType = 2
                         });
@@ -2590,7 +2592,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Wednesday to Friday",
                             availableHours = "9:00 AM - 5:00 PM",
                             bio = "Tech enthusiast and animal lover.",
-                            birthDay = new DateTime(2001, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2001, 5, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "Available",
                             email = "maani.2K@icloud.com",
                             gender = 0,
@@ -2610,7 +2612,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Tuesday,Thursday",
                             availableHours = "10:00 AM - 4:00 PM",
                             bio = "Passionate about animal welfare and education.",
-                            birthDay = new DateTime(2002, 7, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2002, 7, 21, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "NotAvailable",
                             email = "Salma.fayez@example.com",
                             gender = 1,
@@ -2630,7 +2632,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Weekends",
                             availableHours = "8:00 AM - 4:00 PM",
                             bio = "Dedicated to providing quality pet care.",
-                            birthDay = new DateTime(2001, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2001, 9, 11, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "NotAvailable",
                             email = "ali.hassan@example.com",
                             gender = 0,
@@ -2650,7 +2652,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Monday to Friday",
                             availableHours = "9:00 AM - 3:00 PM",
                             bio = "Experienced in pet training and behavior.",
-                            birthDay = new DateTime(2001, 10, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2001, 10, 7, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "Available",
                             email = "Chris.khalil@example.com",
                             gender = 1,
@@ -2670,7 +2672,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Saturday , Sunday",
                             availableHours = "10:00 AM - 6:00 PM",
                             bio = "Loves all animals and enjoys sharing pet care tips.",
-                            birthDay = new DateTime(2001, 5, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2001, 5, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "Available",
                             email = "maani.2K@icloud.com",
                             gender = 0,
@@ -2690,7 +2692,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Monday,Thursday",
                             availableHours = "12:00 PM - 5:00 PM",
                             bio = "Specializes in small animal care and grooming.",
-                            birthDay = new DateTime(2004, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2004, 1, 31, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "Available",
                             email = "zain.najjar@example.com",
                             gender = 1,
@@ -2710,7 +2712,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Sunday to Thursday",
                             availableHours = "11:00 AM - 5:00 PM",
                             bio = "Provides expert advice on pet nutrition and health.",
-                            birthDay = new DateTime(2000, 3, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2000, 3, 15, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "NotAvailable",
                             email = "layla.ali@example.com",
                             gender = 1,
@@ -2730,7 +2732,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Monday to Wednesday",
                             availableHours = "9:00 AM - 2:00 PM",
                             bio = "Focuses on creating a safe and loving environment for pets.",
-                            birthDay = new DateTime(2003, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2003, 6, 8, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "NotAvailable",
                             email = "omar.khalid@example.com",
                             gender = 0,
@@ -2746,11 +2748,11 @@ namespace FullPetFlix.Migrations
                         {
                             userId = 9,
                             BirthDayFormatted = "1998-11-22",
-                            ProfilePic = "https://res.cloudinary.com/dhbhh9aln/image/upload/v1742365404/ftcdgfvefklibxtha5zj.webp\r\n",
+                            ProfilePic = "https://res.cloudinary.com/dhbhh9aln/image/upload/v1742365404/ftcdgfvefklibxtha5zj.webp",
                             availableDays = "Tuesday to Saturday",
                             availableHours = "10:00 AM - 6:00 PM",
                             bio = "Offers personalized pet care solutions and advice.",
-                            birthDay = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(1998, 11, 22, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "Available",
                             email = "noura.saleh@example.com",
                             gender = 1,
@@ -2770,7 +2772,7 @@ namespace FullPetFlix.Migrations
                             availableDays = "Wednesday to Sunday",
                             availableHours = "12:00 PM - 7:00 PM",
                             bio = "Committed to providing exceptional pet care services.",
-                            birthDay = new DateTime(2001, 2, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            birthDay = new DateTime(2001, 2, 5, 0, 0, 0, 0, DateTimeKind.Utc),
                             delivery_method = "Available",
                             email = "tamer.hussein@example.com",
                             gender = 0,

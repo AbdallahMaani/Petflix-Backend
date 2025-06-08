@@ -1,6 +1,6 @@
-using FullPetflix.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using FullPetflix.Models;
 
 public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
@@ -12,7 +12,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbConte
             .Build();
             
         var builder = new DbContextOptionsBuilder<AppDbContext>();
-        var connectionString = configuration.GetConnectionString("DBConnection");
+        var connectionString = configuration.GetConnectionString("RenderPg");
         builder.UseNpgsql(connectionString);
         
         return new AppDbContext(builder.Options);

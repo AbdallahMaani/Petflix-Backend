@@ -30,7 +30,7 @@ namespace FullPetflix.ProductFiles
 
         public string? product_size { get; set; }
         public double? product_weight { get; set; }
-        public DateTime? expiration { get; set; }
+        public DateTime? expiration { get; set; } = DateTime.UtcNow; // Optional: Set default to UTC
         public string? usage { get; set; }
 
         [Required]

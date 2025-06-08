@@ -12,7 +12,7 @@ namespace FullPetflix.AnimalReviewFiles
         public int AnimalReviewId { get; set; }
 
         public string? Content { get; set; } = string.Empty;
-        public DateTime? ReviewDate { get; set; } = DateTime.Now;
+        public DateTime? ReviewDate { get; set; } = DateTime.UtcNow;
 
         [ForeignKey("Reviewer")]
         public int? ReviewerId { get; set; }

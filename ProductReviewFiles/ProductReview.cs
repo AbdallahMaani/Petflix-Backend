@@ -3,8 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using FullPetflix.ProductFiles;
 using FullPetflix.UserFiles;
-using FullPetflix.ProductFiles;
-using FullPetflix.UserFiles;
 
 namespace FullPetflix.ProductReviewFiles
 {
@@ -14,7 +12,7 @@ namespace FullPetflix.ProductReviewFiles
         public int ProductReviewId { get; set; }
 
         public string? Content { get; set; } = string.Empty; // Comment is now required (or allow null)
-        public DateTime? ReviewDate { get; set; } = DateTime.Now;
+        public DateTime? ReviewDate { get; set; } = DateTime.UtcNow;
 
         [ForeignKey("Reviewer")]
         public int? ReviewerId { get; set; }

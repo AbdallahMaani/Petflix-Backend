@@ -11,6 +11,7 @@ using FullPetflix.UserFiles;
 using FullPetflix.Models;
 using FullPetFlix.Repositories;
 using FullPetflix.ReportFiles;
+using Microsoft.AspNetCore.Cors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,30 +25,43 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Database Configuration
 var connectionString = builder.Configuration.GetConnectionString("RenderPg");
 if (string.IsNullOrEmpty(connectionString))
 {
     Console.WriteLine("Error: Connection string 'RenderPg' is not set in configuration.");
     throw new Exception("Connection string 'RenderPg' is not set.");
 }
-Console.WriteLine($"Using connection string: {connectionString}"); // Log for debugging
+Console.WriteLine($"Using connection string: {connectionString}");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString)
-           .EnableSensitiveDataLogging() // Debug DB issues, remove in production
-           .EnableDetailedErrors());     // Debug DB issues, remove in production
+           .EnableSensitiveDataLogging()
+           .EnableDetailedErrors());
 
-// Enable CORS
+// CORS Configuration
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ProductionCors", policy =>
     {
-        policy.WithOrigins("https://petflix-front.onrender.com")
-              .WithMethods("GET", "POST", "PUT", "DELETE") // Restrict methods for security
-              .WithHeaders("Content-Type", "Authorization"); // Restrict headers for security
+        policy.WithOrigins(
+                "https://petflix-front.onrender.com",  // Production frontend
+                "http://localhost:3000"               // Local development
+            )
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .SetPreflightMaxAge(TimeSpan.FromSeconds(86400));
+    });
+
+    // Development policy for testing
+    options.AddPolicy("DevelopmentCors", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
 
-// Register repositories (DI)
+// Dependency Injection
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAnimalRepository, AnimalRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -65,7 +79,19 @@ var app = builder.Build();
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 Console.WriteLine($"Starting server on port: {port}");
 
-// Global exception handling
+// Apply CORS based on environment
+if (app.Environment.IsDevelopment())
+{
+    app.UseCors("DevelopmentCors");
+    Console.WriteLine("Using Development CORS policy");
+}
+else
+{
+    app.UseCors("ProductionCors");
+    Console.WriteLine("Using Production CORS policy");
+}
+
+// Exception Handling
 app.UseExceptionHandler(errorApp =>
 {
     errorApp.Run(async context =>
@@ -81,11 +107,16 @@ app.UseExceptionHandler(errorApp =>
     });
 });
 
-// Root endpoint - place before other middleware to ensure accessibility
-app.MapGet("/", () => "PetFlix Backend is running!");
+// Security Headers
+app.Use(async (context, next) =>
+{
+    context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+    context.Response.Headers.Add("X-Frame-Options", "DENY");
+    await next();
+});
 
-// Use CORS before other middleware
-app.UseCors("ProductionCors");
+// Root endpoint
+app.MapGet("/", () => "PetFlix Backend is running!");
 
 // Swagger UI only in development
 if (app.Environment.IsDevelopment())
@@ -107,7 +138,7 @@ using (var scope = app.Services.CreateScope())
     {
         Console.WriteLine($"Migration failed: {ex.Message}");
         Console.WriteLine(ex.StackTrace);
-        throw; // Re-throw to halt startup if critical
+        throw;
     }
 }
 
@@ -115,5 +146,9 @@ using (var scope = app.Services.CreateScope())
 app.UseAuthorization();
 app.MapControllers();
 
-// Use Render's port binding
+// Handle OPTIONS requests for all API endpoints
+app.MapMethods("/api/{*rest}", new[] { "OPTIONS" }, () => Results.Ok())
+   .WithMetadata(new EnableCorsAttribute("ProductionCors"));
+
+// Run the app
 app.Run($"http://0.0.0.0:{port}");

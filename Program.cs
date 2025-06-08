@@ -32,8 +32,11 @@ if (string.IsNullOrEmpty(connectionString))
     throw new Exception("Connection string 'DBConnection' is not set.");
 }
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));
+/*builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));*/
+
+    builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("RenderPg")));
 
 // Enable CORS
 // Replace the AllowAll policy with this more secure version

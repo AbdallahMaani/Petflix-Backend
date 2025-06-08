@@ -3,8 +3,8 @@ using System;
 using FullPetflix.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -18,20 +18,20 @@ namespace FullPetFlix.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.15")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Cart", b =>
                 {
                     b.Property<int?>("CartId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CartId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("CartId"));
 
                     b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("CartId");
 
@@ -96,23 +96,23 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int?>("CartItemId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CartItemId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("CartItemId"));
 
                     b.Property<int?>("CartId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("ItemId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ItemType")
                         .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("character varying(10)");
 
                     b.Property<int?>("Quantity")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("CartItemId");
 
@@ -207,64 +207,64 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int>("animal_id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("animal_id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("animal_id"));
 
                     b.Property<string>("ItemType")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
+                        .HasColumnType("character varying(10)")
                         .HasDefaultValue("Animal");
 
                     b.Property<string>("age")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("animal_category")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("animal_description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<double?>("animal_new_price")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<double?>("animal_old_price")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<string>("animal_pic")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("animal_size")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("animal_title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("animal_type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<double?>("animal_weight")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<int?>("gender")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("health_status")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("userId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("vaccineStatus")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("animal_id");
 
@@ -811,21 +811,21 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int>("AnimalReviewId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnimalReviewId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("AnimalReviewId"));
 
                     b.Property<int?>("AnimalId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("ReviewDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("ReviewerId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("AnimalReviewId");
 
@@ -841,7 +841,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 1,
                             AnimalId = 1,
                             Content = "Great pet!",
-                            ReviewDate = new DateTime(2025, 6, 4, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7450),
+                            ReviewDate = new DateTime(2025, 6, 7, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1810),
                             ReviewerId = 2
                         },
                         new
@@ -849,7 +849,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 2,
                             AnimalId = 2,
                             Content = "Very playful.",
-                            ReviewDate = new DateTime(2025, 6, 3, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7460),
+                            ReviewDate = new DateTime(2025, 6, 6, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1820),
                             ReviewerId = 3
                         },
                         new
@@ -857,7 +857,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 3,
                             AnimalId = 3,
                             Content = "Beautiful singing!",
-                            ReviewDate = new DateTime(2025, 6, 2, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7460),
+                            ReviewDate = new DateTime(2025, 6, 5, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1820),
                             ReviewerId = 1
                         },
                         new
@@ -865,7 +865,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 4,
                             AnimalId = 1,
                             Content = "Very friendly dog!",
-                            ReviewDate = new DateTime(2025, 6, 1, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7460),
+                            ReviewDate = new DateTime(2025, 6, 4, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1820),
                             ReviewerId = 8
                         },
                         new
@@ -873,7 +873,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 5,
                             AnimalId = 1,
                             Content = "Great pet!",
-                            ReviewDate = new DateTime(2025, 6, 4, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7460),
+                            ReviewDate = new DateTime(2025, 6, 7, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
                             ReviewerId = 5
                         },
                         new
@@ -881,7 +881,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 6,
                             AnimalId = 2,
                             Content = "Very playful.",
-                            ReviewDate = new DateTime(2025, 6, 3, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7470),
+                            ReviewDate = new DateTime(2025, 6, 6, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
                             ReviewerId = 5
                         },
                         new
@@ -889,7 +889,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 7,
                             AnimalId = 8,
                             Content = "Beautiful singing!",
-                            ReviewDate = new DateTime(2025, 6, 2, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7470),
+                            ReviewDate = new DateTime(2025, 6, 5, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
                             ReviewerId = 1
                         },
                         new
@@ -897,7 +897,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 8,
                             AnimalId = 6,
                             Content = "Very friendly dog!",
-                            ReviewDate = new DateTime(2025, 6, 1, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7470),
+                            ReviewDate = new DateTime(2025, 6, 4, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1830),
                             ReviewerId = 3
                         },
                         new
@@ -905,7 +905,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 9,
                             AnimalId = 8,
                             Content = "Great pet!",
-                            ReviewDate = new DateTime(2025, 6, 4, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7480),
+                            ReviewDate = new DateTime(2025, 6, 7, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1840),
                             ReviewerId = 5
                         },
                         new
@@ -913,7 +913,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 10,
                             AnimalId = 6,
                             Content = "Very playful.",
-                            ReviewDate = new DateTime(2025, 6, 3, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7480),
+                            ReviewDate = new DateTime(2025, 6, 6, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1840),
                             ReviewerId = 2
                         },
                         new
@@ -921,7 +921,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 11,
                             AnimalId = 3,
                             Content = "Beautiful singing!",
-                            ReviewDate = new DateTime(2025, 6, 2, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7480),
+                            ReviewDate = new DateTime(2025, 6, 5, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1840),
                             ReviewerId = 5
                         },
                         new
@@ -929,7 +929,7 @@ namespace FullPetFlix.Migrations
                             AnimalReviewId = 12,
                             AnimalId = 9,
                             Content = "Very friendly dog!",
-                            ReviewDate = new DateTime(2025, 6, 1, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7480),
+                            ReviewDate = new DateTime(2025, 6, 4, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1850),
                             ReviewerId = 7
                         });
                 });
@@ -938,21 +938,21 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int>("FavoriteId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FavoriteId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("FavoriteId"));
 
                     b.Property<int?>("AnimalId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("ItemId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("ProductId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("FavoriteId");
 
@@ -1031,34 +1031,34 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int?>("FeedbackId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("FeedbackId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("FeedbackId"));
 
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasMaxLength(2000)
-                        .HasColumnType("nvarchar(2000)");
+                        .HasColumnType("character varying(2000)");
 
                     b.Property<string>("FeedbackType")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("Response")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Status")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<DateTime?>("SubmissionDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("UserId")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("FeedbackId");
 
@@ -1071,27 +1071,27 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int?>("OrderId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("OrderId"));
 
                     b.Property<bool?>("IncludeDelivery")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime?>("OrderDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<decimal?>("Tip")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("UserId")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("OrderId");
 
@@ -1104,7 +1104,7 @@ namespace FullPetFlix.Migrations
                         {
                             OrderId = 1,
                             IncludeDelivery = true,
-                            OrderDate = new DateTime(2025, 6, 4, 10, 21, 36, 212, DateTimeKind.Utc).AddTicks(7510),
+                            OrderDate = new DateTime(2025, 6, 7, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1870),
                             Status = "Processing",
                             Tip = 0.00m,
                             UserId = 5
@@ -1113,7 +1113,7 @@ namespace FullPetFlix.Migrations
                         {
                             OrderId = 2,
                             IncludeDelivery = false,
-                            OrderDate = new DateTime(2025, 6, 3, 10, 21, 36, 212, DateTimeKind.Utc).AddTicks(7520),
+                            OrderDate = new DateTime(2025, 6, 6, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1880),
                             Status = "Completed",
                             Tip = 0.00m,
                             UserId = 1
@@ -1124,23 +1124,23 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int?>("OrderItemId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("OrderItemId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("OrderItemId"));
 
                     b.Property<int?>("ItemId")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("OrderId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("OwnerId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("Quantity")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("OrderItemId");
 
@@ -1179,60 +1179,60 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int>("product_id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("product_id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("product_id"));
 
                     b.Property<string>("ItemType")
                         .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
+                        .HasColumnType("character varying(10)")
                         .HasDefaultValue("Product");
 
                     b.Property<string>("designedFor")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("expiration")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("product_category")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("product_description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<double?>("product_new_price")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<double?>("product_old_price")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<string>("product_pic")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("product_size")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("product_title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("product_type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<double?>("product_weight")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<string>("usage")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int>("userId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("product_id");
 
@@ -1913,21 +1913,21 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int>("ProductReviewId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductReviewId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ProductReviewId"));
 
                     b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<int?>("ProductId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<DateTime?>("ReviewDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("ReviewerId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("ProductReviewId");
 
@@ -1943,7 +1943,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 1,
                             Content = "Great product! My dog loves it.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7170),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1460),
                             ReviewerId = 1
                         },
                         new
@@ -1951,7 +1951,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 2,
                             Content = "Good value for the price.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7220),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1510),
                             ReviewerId = 2
                         },
                         new
@@ -1959,7 +1959,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 3,
                             Content = "Excellent quality. Highly recommend.",
                             ProductId = 2,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7220),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1520),
                             ReviewerId = 3
                         },
                         new
@@ -1967,7 +1967,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 4,
                             Content = "My cat is obsessed with this toy!",
                             ProductId = 3,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7230),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1520),
                             ReviewerId = 4
                         },
                         new
@@ -1975,7 +1975,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 5,
                             Content = "Keeps my bird entertained for hours.",
                             ProductId = 5,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7230),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1560),
                             ReviewerId = 5
                         },
                         new
@@ -1983,7 +1983,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 6,
                             Content = "This collar is so stylish and well-made.",
                             ProductId = 6,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7230),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
                             ReviewerId = 1
                         },
                         new
@@ -1991,7 +1991,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 7,
                             Content = "Best litter I've ever used. Controls odor perfectly.",
                             ProductId = 7,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7230),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
                             ReviewerId = 2
                         },
                         new
@@ -1999,7 +1999,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 8,
                             Content = "Affordable and effective.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7230),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
                             ReviewerId = 3
                         },
                         new
@@ -2007,7 +2007,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 9,
                             Content = "A must-have for cat owners.",
                             ProductId = 7,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7230),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
                             ReviewerId = 4
                         },
                         new
@@ -2015,7 +2015,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 10,
                             Content = "Highly recommend this brand.",
                             ProductId = 2,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7240),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
                             ReviewerId = 5
                         },
                         new
@@ -2023,7 +2023,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 11,
                             Content = "My hamster loves this bedding!",
                             ProductId = 8,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7240),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1570),
                             ReviewerId = 1
                         },
                         new
@@ -2031,7 +2031,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 12,
                             Content = "Great for small dogs, very durable.",
                             ProductId = 9,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7240),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1580),
                             ReviewerId = 2
                         },
                         new
@@ -2039,7 +2039,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 13,
                             Content = "Excellent for training puppies.",
                             ProductId = 10,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7240),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
                             ReviewerId = 3
                         },
                         new
@@ -2047,7 +2047,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 14,
                             Content = "My rabbit enjoys chewing on these sticks.",
                             ProductId = 11,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7240),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
                             ReviewerId = 4
                         },
                         new
@@ -2055,7 +2055,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 15,
                             Content = "The fish food is top-notch, my fish are thriving.",
                             ProductId = 12,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7240),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
                             ReviewerId = 5
                         },
                         new
@@ -2063,7 +2063,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 16,
                             Content = "This leash is very strong and comfortable.",
                             ProductId = 13,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7250),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
                             ReviewerId = 6
                         },
                         new
@@ -2071,7 +2071,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 17,
                             Content = "The catnip spray is a big hit with my cats.",
                             ProductId = 14,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7250),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
                             ReviewerId = 7
                         },
                         new
@@ -2079,7 +2079,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 18,
                             Content = "These treats are healthy and delicious.",
                             ProductId = 15,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7250),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1590),
                             ReviewerId = 8
                         },
                         new
@@ -2087,7 +2087,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 19,
                             Content = "Perfect for my guinea pig's cage.",
                             ProductId = 16,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7250),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
                             ReviewerId = 9
                         },
                         new
@@ -2095,7 +2095,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 20,
                             Content = "Keeps my aquarium clean and clear.",
                             ProductId = 17,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7250),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
                             ReviewerId = 6
                         },
                         new
@@ -2103,7 +2103,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 21,
                             Content = "My dog sleeps so well on this bed.",
                             ProductId = 18,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7260),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
                             ReviewerId = 3
                         },
                         new
@@ -2111,7 +2111,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 22,
                             Content = "Easy to use and effective flea treatment.",
                             ProductId = 19,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7260),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
                             ReviewerId = 6
                         },
                         new
@@ -2119,7 +2119,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 23,
                             Content = "The birdseed mix is a great value.",
                             ProductId = 20,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7260),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
                             ReviewerId = 5
                         },
                         new
@@ -2127,7 +2127,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 24,
                             Content = "My kitten loves this scratching post.",
                             ProductId = 21,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7260),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1600),
                             ReviewerId = 1
                         },
                         new
@@ -2135,7 +2135,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 25,
                             Content = "This vitamin supplement has improved my pet's health.",
                             ProductId = 22,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7260),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
                             ReviewerId = 2
                         },
                         new
@@ -2143,7 +2143,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 26,
                             Content = "Great for travel, very convenient.",
                             ProductId = 23,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7260),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
                             ReviewerId = 3
                         },
                         new
@@ -2151,7 +2151,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 27,
                             Content = "My reptile enjoys basking under this lamp.",
                             ProductId = 24,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7260),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
                             ReviewerId = 4
                         },
                         new
@@ -2159,7 +2159,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 28,
                             Content = "The dog shampoo smells amazing.",
                             ProductId = 25,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7270),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
                             ReviewerId = 5
                         },
                         new
@@ -2167,7 +2167,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 29,
                             Content = "These chew toys are perfect for aggressive chewers.",
                             ProductId = 26,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7270),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
                             ReviewerId = 6
                         },
                         new
@@ -2175,7 +2175,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 30,
                             Content = "My bird loves playing with this mirror.",
                             ProductId = 27,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7270),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1610),
                             ReviewerId = 7
                         },
                         new
@@ -2183,7 +2183,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 31,
                             Content = "Excellent quality food, my dog is very happy.",
                             ProductId = 28,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7270),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
                             ReviewerId = 2
                         },
                         new
@@ -2191,7 +2191,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 32,
                             Content = "This carrier is sturdy and comfortable.",
                             ProductId = 29,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7270),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
                             ReviewerId = 4
                         },
                         new
@@ -2199,7 +2199,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 33,
                             Content = "The water fountain is a great addition to my cat's setup.",
                             ProductId = 30,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7280),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
                             ReviewerId = 3
                         },
                         new
@@ -2207,7 +2207,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 34,
                             Content = "These training pads are very absorbent.",
                             ProductId = 1,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7280),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
                             ReviewerId = 4
                         },
                         new
@@ -2215,7 +2215,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 35,
                             Content = "My hamster loves running in this wheel.",
                             ProductId = 2,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7280),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
                             ReviewerId = 6
                         },
                         new
@@ -2223,7 +2223,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 36,
                             Content = "This harness is very easy to put on.",
                             ProductId = 3,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7280),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1620),
                             ReviewerId = 5
                         },
                         new
@@ -2231,7 +2231,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 37,
                             Content = "The cat grass is a great natural treat.",
                             ProductId = 4,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7280),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
                             ReviewerId = 1
                         },
                         new
@@ -2239,7 +2239,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 38,
                             Content = "These dental chews have improved my dog's breath.",
                             ProductId = 5,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7280),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
                             ReviewerId = 2
                         },
                         new
@@ -2247,7 +2247,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 39,
                             Content = "My guinea pig loves hiding in this tunnel.",
                             ProductId = 6,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7290),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
                             ReviewerId = 3
                         },
                         new
@@ -2255,7 +2255,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 40,
                             Content = "The aquarium decorations are very realistic.",
                             ProductId = 7,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7290),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
                             ReviewerId = 4
                         },
                         new
@@ -2263,7 +2263,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 41,
                             Content = "This bird cage is spacious and easy to clean.",
                             ProductId = 8,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7290),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1630),
                             ReviewerId = 5
                         },
                         new
@@ -2271,7 +2271,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 42,
                             Content = "My dog loves playing fetch with this frisbee.",
                             ProductId = 9,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7290),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
                             ReviewerId = 6
                         },
                         new
@@ -2279,7 +2279,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 43,
                             Content = "The cat tree is sturdy and provides plenty of scratching posts.",
                             ProductId = 10,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7290),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
                             ReviewerId = 7
                         },
                         new
@@ -2287,7 +2287,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 44,
                             Content = "This food bowl is perfect for my messy eater.",
                             ProductId = 11,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7290),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
                             ReviewerId = 8
                         },
                         new
@@ -2295,7 +2295,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 45,
                             Content = "The grooming brush is gentle and effective.",
                             ProductId = 12,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7300),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
                             ReviewerId = 5
                         },
                         new
@@ -2303,7 +2303,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 46,
                             Content = "My pet loves the taste of this toothpaste.",
                             ProductId = 13,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7300),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1640),
                             ReviewerId = 3
                         },
                         new
@@ -2311,7 +2311,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 47,
                             Content = "This tick and flea collar is a lifesaver.",
                             ProductId = 14,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7300),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
                             ReviewerId = 4
                         },
                         new
@@ -2319,7 +2319,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 48,
                             Content = "The travel carrier is lightweight and easy to carry.",
                             ProductId = 15,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7300),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
                             ReviewerId = 10
                         },
                         new
@@ -2327,7 +2327,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 49,
                             Content = "This playpen is perfect for keeping my puppy contained.",
                             ProductId = 16,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7300),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
                             ReviewerId = 5
                         },
                         new
@@ -2335,7 +2335,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 50,
                             Content = "The aquarium filter is quiet and efficient.",
                             ProductId = 17,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7300),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
                             ReviewerId = 1
                         },
                         new
@@ -2343,7 +2343,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 51,
                             Content = "My cat loves lounging in this hammock.",
                             ProductId = 18,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7310),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
                             ReviewerId = 2
                         },
                         new
@@ -2351,7 +2351,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 52,
                             Content = "This dog bed is super comfy and easy to wash.",
                             ProductId = 19,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7310),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1650),
                             ReviewerId = 3
                         },
                         new
@@ -2359,7 +2359,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 53,
                             Content = "The bird perch is a great addition to my bird's cage.",
                             ProductId = 20,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7310),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
                             ReviewerId = 4
                         },
                         new
@@ -2367,7 +2367,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 54,
                             Content = "This cat toy is interactive and keeps my cat entertained.",
                             ProductId = 21,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7310),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
                             ReviewerId = 5
                         },
                         new
@@ -2375,7 +2375,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 55,
                             Content = "The dog treats are made with high-quality ingredients.",
                             ProductId = 22,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7310),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
                             ReviewerId = 6
                         },
                         new
@@ -2383,7 +2383,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 56,
                             Content = "This pet carrier is perfect for air travel.",
                             ProductId = 23,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7310),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
                             ReviewerId = 7
                         },
                         new
@@ -2391,7 +2391,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 57,
                             Content = "The reptile tank is well-ventilated and secure.",
                             ProductId = 24,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7320),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
                             ReviewerId = 8
                         },
                         new
@@ -2399,7 +2399,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 58,
                             Content = "This dog coat is warm and waterproof.",
                             ProductId = 25,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7320),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1660),
                             ReviewerId = 9
                         },
                         new
@@ -2407,7 +2407,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 59,
                             Content = "The chew toy is durable and long-lasting.",
                             ProductId = 26,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7320),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1670),
                             ReviewerId = 4
                         },
                         new
@@ -2415,7 +2415,7 @@ namespace FullPetFlix.Migrations
                             ProductReviewId = 60,
                             Content = "This bird swing provides hours of fun for my feathered friend.",
                             ProductId = 27,
-                            ReviewDate = new DateTime(2025, 6, 5, 13, 21, 36, 212, DateTimeKind.Local).AddTicks(7320),
+                            ReviewDate = new DateTime(2025, 6, 8, 13, 6, 53, 959, DateTimeKind.Local).AddTicks(1670),
                             ReviewerId = 10
                         });
                 });
@@ -2424,43 +2424,43 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int?>("ReportId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("ReportId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("ReportId"));
 
                     b.Property<string>("Content")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("character varying(500)");
 
                     b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("ReportedAnimalId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("ReportedProductId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("ReportedUserId")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int?>("ReporterId")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<string>("ResolutionNotes")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("character varying(500)");
 
                     b.Property<DateTime?>("ResolvedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<int>("TargetType")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("ReportId");
 
@@ -2479,7 +2479,7 @@ namespace FullPetFlix.Migrations
                         {
                             ReportId = 1,
                             Content = "Inappropriate behavior.",
-                            CreatedAt = new DateTime(2025, 6, 5, 10, 21, 36, 212, DateTimeKind.Utc).AddTicks(6740),
+                            CreatedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(990),
                             ReportedUserId = 2,
                             ReporterId = 1,
                             Status = 0,
@@ -2489,7 +2489,7 @@ namespace FullPetFlix.Migrations
                         {
                             ReportId = 2,
                             Content = "Animal listing seems suspicious.",
-                            CreatedAt = new DateTime(2025, 6, 5, 10, 21, 36, 212, DateTimeKind.Utc).AddTicks(6750),
+                            CreatedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1000),
                             ReportedAnimalId = 2,
                             ReporterId = 2,
                             Status = 1,
@@ -2499,11 +2499,11 @@ namespace FullPetFlix.Migrations
                         {
                             ReportId = 3,
                             Content = "Product description is misleading.",
-                            CreatedAt = new DateTime(2025, 6, 5, 10, 21, 36, 212, DateTimeKind.Utc).AddTicks(6750),
+                            CreatedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1000),
                             ReportedProductId = 1,
                             ReporterId = 1,
                             ResolutionNotes = "Issue addressed.",
-                            ResolvedAt = new DateTime(2025, 6, 5, 10, 21, 36, 212, DateTimeKind.Utc).AddTicks(6750),
+                            ResolvedAt = new DateTime(2025, 6, 8, 10, 6, 53, 959, DateTimeKind.Utc).AddTicks(1000),
                             Status = 2,
                             TargetType = 2
                         });
@@ -2513,66 +2513,66 @@ namespace FullPetFlix.Migrations
                 {
                     b.Property<int>("userId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("userId"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("userId"));
 
                     b.Property<string>("BirthDayFormatted")
-                        .HasColumnType("nvarchar(max)")
+                        .HasColumnType("text")
                         .HasAnnotation("Relational:JsonPropertyName", "birthDay");
 
                     b.Property<string>("ProfilePic")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("availableDays")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("availableHours")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("bio")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("birthDay")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("delivery_method")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("email")
                         .IsRequired()
                         .HasMaxLength(120)
-                        .HasColumnType("nvarchar(120)");
+                        .HasColumnType("character varying(120)");
 
                     b.Property<int?>("gender")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.Property<bool?>("isAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("location")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("password")
                         .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasColumnType("character varying(60)");
 
                     b.Property<string>("phone")
                         .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("character varying(15)");
 
                     b.Property<double?>("rating")
-                        .HasColumnType("float");
+                        .HasColumnType("double precision");
 
                     b.Property<string>("username")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("userId");
 

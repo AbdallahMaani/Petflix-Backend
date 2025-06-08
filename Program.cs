@@ -27,11 +27,14 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("RenderPg");
 if (string.IsNullOrEmpty(connectionString))
 {
+    Console.WriteLine("Error: Connection string 'RenderPg' is not set in configuration.");
     throw new Exception("Connection string 'RenderPg' is not set.");
 }
-
+Console.WriteLine($"Using connection string: {connectionString}"); // Log for debugging
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionString));
+    options.UseNpgsql(connectionString)
+           .EnableSensitiveDataLogging() // Debug DB issues
+           .EnableDetailedErrors());     // Debug DB issues
 
 // Enable CORS
 builder.Services.AddCors(options =>
@@ -60,9 +63,7 @@ var app = builder.Build();
 
 // Get the PORT environment variable from Render
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-
-// Add a root endpoint
-app.MapGet("/", () => "PetFlix Backend is running!");
+Console.WriteLine($"Starting server on port: {port}");
 
 // Global exception handling
 app.UseExceptionHandler(errorApp =>
@@ -90,10 +91,21 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Apply migrations
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.Migrate();
+    try
+    {
+        dbContext.Database.Migrate();
+        Console.WriteLine("Database migrations applied successfully.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Migration failed: {ex.Message}");
+        Console.WriteLine(ex.StackTrace);
+        throw;
+    }
 }
 
 // Disable HTTPS redirection for Render

@@ -113,6 +113,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Authorization and controllers
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

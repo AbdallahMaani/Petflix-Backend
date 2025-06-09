@@ -41,10 +41,17 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("ProductionCors", policy =>
     {
-        policy.WithOrigins("https://petflix-front.onrender.com")
-              .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Include OPTIONS for preflight
-              .AllowAnyHeader() // Allow all headers, including Cache-Control
-              .AllowCredentials(); // Optional, only if using credentials (e.g., cookies, auth tokens)
+        policy.WithOrigins(
+            "https://petflix-front.onrender.com",
+            "https://www.petflix-front.onrender.com",
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+            "http://localhost:5173",
+            "http://127.0.0.1:5173"
+        )
+        .WithMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
+        .AllowAnyHeader()
+        .AllowCredentials();
     });
 });
 

@@ -1,4 +1,5 @@
 ﻿using FullPetflix.OrderFiles;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -40,6 +41,7 @@ namespace FullPetflix.OrderFiles
         }
 
         [HttpPatch("{orderId}/status")]
+        [Authorize]
         public async Task<IActionResult> UpdateOrderStatus(int orderId, [FromBody] string status)
         {
             if (!ModelState.IsValid)

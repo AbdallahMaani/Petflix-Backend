@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy project files and restore dependencies
-COPY FullPetFlix.csproj .
-RUN dotnet restore
+COPY FullPetFlix.csproj ./
+RUN dotnet restore "FullPetFlix.csproj"
 
 # Copy the rest of the source code and build
 COPY . .
